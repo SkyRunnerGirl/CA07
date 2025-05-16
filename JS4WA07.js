@@ -237,4 +237,20 @@ willBuyDrink(true, 15);
 
 /*
 13. Create a function of your own that solves a problem. In comments, write what the function does and why you created it.
+I created a function to determine if a year is a leap year or not. I wanted to work with Boolean logic as it sometimes still twists my mind. The function called isLeapYear takes one number parameter. It then tests it against Booleans. If the year is divisible by 4 it is a leap year, unless it is also divisible by 100, then it it not a leap year, unless it is also divisible by 400, then it is a leap year. (Ex: 2000 is a leap year, but 1900 is not; 2024 is a leap year.)
+I used the remainder assignment operator (%) to show that something was (=== 0) or was not (!== 0) divisible by a number. Then I created the && statements to show all the parts that had to be true for it to return true. I started with all 3 Booleans that needed to be true, then took one away at a time to work down. I created a result variable that called the function and passed through the year variable as the argument. The year variable was outside the function so it could be changed and the function could be checked. Then I logged the result.
 */
+let year = 1900
+
+function isLeapYear(num) {
+  if(num % 4 === 0 && num % 100 === 0 && num % 400 === 0) {
+    return num + " is a leap year.";
+  } else if (num % 4 === 0 && num % 100 === 0 && num % 400 !== 0) {
+  return num + " is not a leap year.";
+  } else if (num % 4 === 0 && num % 100 !== 0) {
+    return num + " is a leap year.";
+  }
+}
+
+let result = isLeapYear(year);
+console.log(result);
